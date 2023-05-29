@@ -1,71 +1,44 @@
 package com.springbootecommerce.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "product")
+@Data
+@Table(name = "products")
 public class Product {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    Long id;
-    @Column(name = "productName")
-    String productName;
-    @Column(name = "quantity")
-    int quantity;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name")
+    private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id")
+    private Category category;
+
     @Column(name = "price")
-    double price;
+    private double price;
+    @Column(name = "quantity")
+    private int quantity;
     @Column(name = "description")
-    String description;
+    private String description;
 
-    public Product(Long id, String productName, int quantity, double price, String description) {
-        this.id = id;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.price = price;
-        this.description = description;
-    }
-    public Product() {
+    @Column(name = "image_name")
+    private String image_name;
 
-    }
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToMany (cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "cart",
+            joinColumns= {@JoinColumn(name = "product_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "cart_id", referencedColumnName = "cart_id")}
+    )
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    private List<Cart> cart;
 
 }

@@ -2,16 +2,201 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="ISO-8859-1">
-  <title>AC Techno Login</title>
+  <title>Login</title>
 
   <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .wrapper {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1140px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: flex;
+      background: #ffffff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+    }
+
+    .credit {
+      position: relative;
+      margin: 25px auto 0 auto;
+      width: 100%;
+      text-align: center;
+      color: #666666;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .credit a {
+      color: #222222;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* * * * * Login Form CSS * * * * */
+    h2 {
+      margin: 0 0 15px 0;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    h2 img {
+      width: 120px;
+    }
+
+    .col-left,
+    .col-right {
+      width: 55%;
+      padding: 45px 35px;
+      display: flex;
+    }
+
+    .col-left {
+      width: 45%;
+      background: #3d3d3d;
+      -webkit-clip-path: polygon(98% 17%, 100% 34%, 98% 51%, 100% 68%, 98% 84%, 100% 100%, 0 100%, 0 0, 100% 0);
+      clip-path: polygon(98% 17%, 100% 34%, 98% 51%, 100% 68%, 98% 84%, 100% 100%, 0 100%, 0 0, 100% 0);
+    }
+
+    @media(max-width: 575.98px) {
+      .container {
+        flex-direction: column;
+        box-shadow: none;
+      }
+
+      .col-left,
+      .col-right {
+        width: 100%;
+        margin: 0;
+        padding: 30px;
+        -webkit-clip-path: none;
+        clip-path: none;
+      }
+    }
+
+    .login-text {
+      position: relative;
+      width: 100%;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .login-text img{
+      width: 200px;
+    }
+
+    .login-form {
+      position: relative;
+      width: 100%;
+      color: #666666;
+    }
+
+    .login-form p:last-child {
+      margin: 0;
+    }
+
+    .login-form p a {
+      color: #3d3d3d;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .login-form p a:hover {
+      text-decoration: underline;
+    }
+
+    .login-form p:last-child a:last-child {
+      float: right;
+    }
+
+    .login-form label {
+      display: block;
+      width: 100%;
+      margin-bottom: 2px;
+      letter-spacing: .5px;
+    }
+
+    .login-form p:last-child label {
+      width: 60%;
+      float: left;
+    }
+
+    .login-form label span {
+      color: #ff574e;
+      padding-left: 2px;
+    }
+
+    .login__field {
+        padding: 10px 0px;
+        position: relative;
+        margin:0;
+    }
+
+    .login__icon {
+        position: absolute;
+        top: 30px;
+        color: #3d3d3d;
+    }
+
+    .login__input {
+        border: none;
+        border-bottom: 2px solid #D1D1D4;
+        background: none;
+        padding: 10px;
+        padding-left: 24px;
+        font-weight: 500;
+        width: 75%;
+        transition: .2s;
+    }
+
+    .login__input:active,
+    .login__input:focus,
+    .login__input:hover {
+        outline: none;
+        border-bottom-color: #3d3d3d;
+    }
+
+    .login-form input.btn {
+      color: #ffffff;
+      background: #3d3d3d;
+      border-color: #3d3d3d;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .login-form input.btn:hover {
+      color: #8b6c5c;
+      background: #ffffff;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,7 +204,7 @@
   <div class="container">
     <div class="col-left">
       <div class="login-text">
-        <img src="../static/img/logo.png"/>
+        <img th:src="@{/images/logo.png}" src="../static/images/logo.png"/>
         <h2>
           Welcome !
         </h2>
@@ -28,7 +213,8 @@
     <div class="col-right">
       <div class="login-form">
         <h2>Login</h2>
-        <form>
+        <p>Please fill out this to login</p>
+        <form th:action="@{/login}" method="post">
           <div class="login__field">
             <i class="login__icon fas fa fa-user"></i>
             <input type="text" class="login__input" placeholder="Username" required>
@@ -37,13 +223,16 @@
             <i class="login__icon fa fa-lock"></i>
             <input type="password" class="login__input" placeholder="Password" required>
           </div>
+          <div th:if="${param.error}" class="alert alert-error text-danger">
+            Invalid username or password.
+          </div>
           <p>
             <input class="btn" type="submit" value="Login" />
           </p>
 
         </form>
         <p>
-          <a href="">Create an account.</a>
+          <a href="./register.html" th:href="@{/register}">Create an account.</a>
         </p>
       </div>
     </div>

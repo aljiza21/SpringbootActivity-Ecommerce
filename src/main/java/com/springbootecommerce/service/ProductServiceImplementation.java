@@ -2,10 +2,12 @@ package com.springbootecommerce.service;
 
 import com.springbootecommerce.entity.Product;
 import com.springbootecommerce.repository.ProductRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProductServiceImplementation implements ProductService{
 
     private ProductRepository productRepository;

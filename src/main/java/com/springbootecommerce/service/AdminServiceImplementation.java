@@ -2,8 +2,9 @@ package com.springbootecommerce.service;
 
 import com.springbootecommerce.dto.ProductDTO;
 import com.springbootecommerce.entity.Product;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class AdminServiceImplementation implements AdminService{
     @Override
     public ProductDTO setProductFields(Product product) {

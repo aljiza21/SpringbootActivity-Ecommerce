@@ -84,8 +84,8 @@ public class AdminController {
     }
     @PostMapping("/admin/products/add")
     public String productAddPost(@ModelAttribute("productDTO")ProductDTO productDTO,
-                                 @RequestParam("productImage") MultipartFile file,
-                                 @RequestParam("imgName")String imgName ) throws IOException {
+                                 @RequestParam("productImage")MultipartFile file,
+                                 @RequestParam("imgName")String imgName ) throws IOException{
         userService.productAddPost(productDTO, imgName, file);
         return "redirect:/admin/products";
     }

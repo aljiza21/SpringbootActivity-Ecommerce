@@ -5,16 +5,16 @@ import com.springbootecommerce.dto.TotalCartDTO;
 import com.springbootecommerce.entity.Cart;
 import com.springbootecommerce.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
+@Transactional
 public class CartServiceImplementation implements CartService{
-    private CartRepository cartRepository;
-
     @Autowired
-    public CartServiceImplementation(CartRepository cartRepository) {
-        this.cartRepository = cartRepository;
-    }
+    private CartRepository cartRepository;
 
     @Override
     public void addCart(int user_id, int product_id) {

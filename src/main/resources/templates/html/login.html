@@ -221,7 +221,10 @@
           </div>
           <div class="login__field">
             <i class="login__icon fa fa-lock"></i>
-            <input type="password" th:if="${param.error}" class="login__input" placeholder="Password" required>
+            <input type="password" class="login__input" placeholder="Password" required>
+          </div>
+          <div th:if="${param.error}" class="alert alert-error text-danger">
+            Invalid username or password.
           </div>
           <p>
             <input class="btn" type="submit" value="Login" />

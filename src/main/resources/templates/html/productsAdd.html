@@ -109,7 +109,7 @@
         <a class="nav-link" th:href="@{/admin}" href="#">Home</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" th:href="@{/logout}" href="#"><i class="fa fa-sign-out" style="font-size: 20px;"></i></a>
+        <a class="nav-link" th:href="@{/logout}" href="#"><i class="fa fa-sign-out" style="font-size: 16px;"></i></a>
       </li>
     </ul>
   </nav>
@@ -117,7 +117,7 @@
 <div class="container">
 
   <h3 class="m-5" align="center">
-    Add New Category
+    Add New Product
   </h3>
 
   <form th:action="@{/admin/products/add/{id}(id = ${productDTO.id})}" method="post" th:object="${productDTO}" enctype="multipart/form-data">

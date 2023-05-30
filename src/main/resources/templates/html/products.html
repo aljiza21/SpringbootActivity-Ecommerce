@@ -5,49 +5,261 @@
   <meta name="viewport"
         content="width=device-width, users-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <title>Document</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- ICON Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+        /**  Nav Bar **/
+        body {
+          font-family: "Poppins", sans-serif;
+        }
+
+        .navbar {
+          display: flex;
+          align-items: center;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.568);
+        }
+
+        nav {
+          flex: 1;
+          text-align: right;
+        }
+
+        nav ul {
+          display: inline-block;
+          list-style-type: none;
+        }
+
+        nav ul li {
+          display: inline-block;
+          margin-right: 20px;
+        }
+
+        .logo img{
+            margin-left: 30px;
+        }
+
+        a {
+          text-decoration: none;
+          color: #000;
+          font-size: 15px;
+          font-family: "Poppins", sans-serif;
+        }
+
+        p {
+          color: #000;
+        }
+        span{
+            color: #000;
+        }
+        i{
+            font-size: 15px;
+        }
+
+        /** hover effect 15 **/
+
+        .SMN_effect-15 a:before, .SMN_effect-15 a:after {
+            display: inline-block;
+            opacity: 0;
+            -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+            -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+            transition: transform 0.3s, opacity 0.2s;
+        }
+
+        .SMN_effect-15 a:before {
+            margin-right: 10px;
+            color:8b6c5c;
+            content: '[';
+            -webkit-transform: translateX(20px);
+            -moz-transform: translateX(20px);
+            transform: translateX(20px);
+        }
+
+        .SMN_effect-15 a:after {
+            color:8b6c5c;
+            margin-left: 10px;
+            content: ']';
+            -webkit-transform: translateX(-20px);
+            -moz-transform: translateX(-20px);
+            transform: translateX(-20px);
+        }
+
+        .SMN_effect-15 a:hover:before, .SMN_effect-15 a:hover:after, .SMN_effect-15 a:focus:before, .SMN_effect-15 a:focus:after {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            transform: translateX(0px);
+        }
+
+        /** div container **/
+        .features {
+          padding-top: 100px;
+          padding-bottom: 100px;
+        }
+        .features .container {
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+        }
+        .features .container .box {
+          border: 1px solid #ccc;
+          max-width: 500px;
+        }
+        .features .container .image {
+          background-color: #777;
+          height: 200px;
+          position: relative;
+          overflow: hidden;
+        }
+        .features .container .box .image::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+        }
+        .features .container .quality .image::before {
+          background-color: rgb(61 61 61 / 60%);
+        }
+        .features .container .time .image::before {
+          background-color: rgb(61 61 61 / 60%);
+        }
+        .features .container .passion .image::before {
+          background-color: rgb(61 61 61 / 60%);
+        }
+        .features .container .image::after {
+          content: "";
+          position: absolute;
+          border-style: solid;
+          border-color: transparent transparent white transparent;
+          border-width: 0 0 170px 600px;
+          left: -15px;
+          bottom: -2px;
+          transition: 0.3s;
+        }
+        .features .container .box:hover .image::after {
+          border-width: 170px 600px 170px 0;
+        }
+        .features .container .image img {
+          max-width: 100%;
+        }
+        .features .container .box .text {
+          text-align: center;
+          padding: 30px;
+        }
+        .features .container .box .text h3 {
+          font-size: 30px;
+          font-weight: bold;
+          position: relative;
+          width: fit-content;
+          margin: 0 auto;
+        }
+        .features .container .box .text h3::after {
+          content: "";
+          position: absolute;
+          height: 3px;
+          width: calc(100% - 30px);
+          left: 15px;
+          bottom: -10px;
+          background-color: red;
+        }
+        .features .container .quality .text h3::after {
+          background-color: rgb(61 61 61);
+        }
+
+        .features .container .time .text h3::after {
+          background-color: rgb(61 61 61);
+        }
+        .features .container .passion .text h3::after {
+          background-color: rgb(61 61 61);
+        }
+        .features .container .box a {
+          display: block;
+          width: fit-content;
+          margin: 0 auto 15px;
+          border: 3px solid;
+          padding: 10px 30px;
+          border-radius: 6px;
+          font-size: 20px;
+          font-weight: bold;
+          transition: 0.3s;
+          text-decoration: none;
+        }
+        .features .container .quality a {
+          color: rgb(61 61 61);
+          border-color: rgb(61 61 61);
+          background: linear-gradient(to right, rgb(61 61 61) 50%, white 50%);
+          background-size: 200% 100%;
+          background-position: right bottom;
+        }
+        .features .container .quality:hover a {
+          background-position: left bottom;
+          color: white;
+        }
+        .features .container .time a {
+          border-color: rgb(61 61 61);
+          background: linear-gradient(to right, rgb(61 61 61) 50%, white 50%);
+          background-size: 200% 100%;
+          background-position: right bottom;
+          color: rgb(61 61 61);
+        }
+        .features .container .time:hover a {
+          background-position: left bottom;
+          color: white;
+        }
+        .features .container .passion a {
+          border-color: rgb(61 61 61);
+          background: linear-gradient(to right, rgb(61 61 61) 50%, white 50%);
+          background-size: 200% 100%;
+          background-position: right bottom;
+          color: rgb(61 61 61);
+        }
+        .features .container .passion:hover a {
+          background-position: left bottom;
+          color: white;
+        }
+  </style>
+  <title>Products</title>
 </head>
-<body style="height: 100vh;" class="alert alert-primary">
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
-  <div class="container-fluid" style="background: #DDB771" >
-    <a class="navbar-brand" href="#">
-      <img th:src="@{/images/logo.jpg}"  src="../static/images/logo.png" width="auto" height="40" class="d-inline-block align-top" alt=""/>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-      <ul class="navbar-nav mr-auto"></ul>
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" th:href="@{/admin}" href="#">admin-home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" th:href="@{/logout}" href="#">logout</a>
-        </li>
-
-      </ul>
-
-    </div>
+<body style="height: 100vh;" class="alert">
+<div class="navbar bg-light">
+  <div class="logo">
+    <a href="index.html"><img th:src="@{/images/logo-black.png}" src="../static/images/logo-black.png" alt="RedStore" width="100px" /></a>
   </div>
-</nav>
+  <nav>
+    <ul class="SMN_effect-15" id="MenuItems">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/admin}" href="#">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/logout}" href="#"><i class="fa fa-sign-out" style="font-size: 20px;"></i></a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 <div class="container-fluid">
 
-  <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn btn-primary">Add Product</a>
-  <table class="table">
-    <thead class="thead-light">
+  <h1 class="m-5" align="center">
+    List of Products
+  </h1>
+
+  <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+  <table class="table table-striped">
+    <thead class="thead-dark">
     <tr>
       <th scope="col">SN</th>
       <th scope="col">Product Name</th>
       <th scope="col">Category</th>
 <!--      COmment-->
       <th scope="col">Preview</th>
-      <th scope="col">Delete</th>
-      <th scope="col">Update</th>
+      <th scope="col">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -58,9 +270,14 @@
       <td th:text="${product.category.name}">Larry</td>
 <!--      Comment-->
       <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.getImage_name}}"></td>
+      <td>
+<!--        <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>-->
+        <a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}">
+          <button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+        <a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}">
+          <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+      </td>
 
-      <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
-      <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
 
     </tr>
     </tbody>

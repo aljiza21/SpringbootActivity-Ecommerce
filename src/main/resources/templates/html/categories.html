@@ -5,47 +5,129 @@
   <meta name="viewport"
         content="width=device-width, users-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <title>Document</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- ICON Link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Categories</title>
+  <style>
+        /**  Nav Bar **/
+        body {
+          font-family: "Poppins", sans-serif;
+        }
+
+        .navbar {
+          display: flex;
+          align-items: center;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.568);
+        }
+
+        nav {
+          flex: 1;
+          text-align: right;
+        }
+
+        nav ul {
+          display: inline-block;
+          list-style-type: none;
+        }
+
+        nav ul li {
+          display: inline-block;
+          margin-right: 20px;
+        }
+
+        .logo img{
+            margin-left: 30px;
+        }
+
+        a {
+          text-decoration: none;
+          color: #000;
+          font-size: 15px;
+          font-family: "Poppins", sans-serif;
+        }
+
+        p {
+          color: #000;
+        }
+        span{
+            color: #000;
+        }
+        i{
+            font-size: 15px;
+        }
+
+        /** hover effect 15 **/
+
+        .SMN_effect-15 a:before, .SMN_effect-15 a:after {
+            display: inline-block;
+            opacity: 0;
+            -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+            -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+            transition: transform 0.3s, opacity 0.2s;
+        }
+
+        .SMN_effect-15 a:before {
+            margin-right: 10px;
+            color:3d3d3d;
+            content: '[';
+            -webkit-transform: translateX(20px);
+            -moz-transform: translateX(20px);
+            transform: translateX(20px);
+        }
+
+        .SMN_effect-15 a:after {
+            color:3d3d3d;
+            margin-left: 10px;
+            content: ']';
+            -webkit-transform: translateX(-20px);
+            -moz-transform: translateX(-20px);
+            transform: translateX(-20px);
+        }
+
+        .SMN_effect-15 a:hover:before, .SMN_effect-15 a:hover:after, .SMN_effect-15 a:focus:before, .SMN_effect-15 a:focus:after {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            transform: translateX(0px);
+        }
+  </style>
 </head>
-<body style="height: 100vh;" class="alert alert-primary">
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
-  <div class="container-fluid" style="background: #DDB771">
-    <a class="navbar-brand" href="#">
-      <img th:src="@{/images/logo.jpg}"  src="../static/images/logo.png" width="auto" height="40" class="d-inline-block align-top" alt=""/>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto"></ul>
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" th:href="@{/admin}" href="#">admin-home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" th:href="@{/logout}" href="#">logout</a>
-        </li>
-
-      </ul>
-
-    </div>
+<body>
+<div class="navbar bg-light">
+  <div class="logo">
+    <a href="index.html"><img th:src="@{/images/logo-black.png}" src="../static/images/logo-black.png" alt="RedStore" width="100px" /></a>
   </div>
-</nav>
+  <nav>
+    <ul class="SMN_effect-15" id="MenuItems">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/admin}" href="#">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/logout}" href="#"><i class="fa fa-sign-out" style="font-size: 20px;"></i></a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 <div class="container">
 
-  <a th:href="@{/admin/categories/add}" style="margin: 20px 0" class="btn btn-primary">Add Category</a>
+  <h1 class="m-5" align="center">
+    List of Category
+  </h1>
+
+  <a th:href="@{/admin/categories/add}" style="margin: 20px 0" class="btn btn-primary float-right"><i class="fa fa-plus" style="color: #fff"></i></a>
   <table class="table">
-    <thead class="thead-light">
+    <thead class="thead-dark">
     <tr>
       <th scope="col">SN</th>
       <th scope="col">Category Name</th>
-      <th scope="col">Delete</th>
-      <th scope="col">Update</th>
+      <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -53,10 +135,8 @@
     <tr th:each="category, iStat : ${categories}">
       <th scope="row" th:text="${iStat.index + 1}">1</th>
       <td th:text="${category.name}">Larry</td>
-
-      <td><a href="" th:href="@{/admin/categories/delete/{id}(id=${category.id})}" class="btn btn-danger">Delete</a></td>
-      <td><a href="" th:href="@{/admin/categories/update/{id}(id=${category.id})}" class="btn btn-warning">Update</a></td>
-
+      <td><a href="" th:href="@{/admin/categories/update/{id}(id=${category.id})}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+      <a href="" th:href="@{/admin/categories/delete/{id}(id=${category.id})}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
     </tr>
     </tbody>
   </table>
@@ -64,8 +144,5 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

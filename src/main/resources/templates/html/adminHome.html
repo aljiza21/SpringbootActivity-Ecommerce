@@ -5,9 +5,15 @@
   <meta name="viewport"
         content="width=device-width, users-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- ICON Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
-    /**  Nav Bar **/
+        /**  Nav Bar **/
         body {
           font-family: "Poppins", sans-serif;
         }
@@ -50,6 +56,44 @@
         span{
             color: #000;
         }
+        i{
+            font-size: 15px;
+        }
+
+        /** hover effect 15 **/
+
+        .SMN_effect-15 a:before, .SMN_effect-15 a:after {
+            display: inline-block;
+            opacity: 0;
+            -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+            -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+            transition: transform 0.3s, opacity 0.2s;
+        }
+
+        .SMN_effect-15 a:before {
+            margin-right: 10px;
+            color:8b6c5c;
+            content: '[';
+            -webkit-transform: translateX(20px);
+            -moz-transform: translateX(20px);
+            transform: translateX(20px);
+        }
+
+        .SMN_effect-15 a:after {
+            color:8b6c5c;
+            margin-left: 10px;
+            content: ']';
+            -webkit-transform: translateX(-20px);
+            -moz-transform: translateX(-20px);
+            transform: translateX(-20px);
+        }
+
+        .SMN_effect-15 a:hover:before, .SMN_effect-15 a:hover:after, .SMN_effect-15 a:focus:before, .SMN_effect-15 a:focus:after {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            transform: translateX(0px);
+        }
 
         /** div container **/
         .features {
@@ -65,7 +109,7 @@
         }
         .features .container .box {
           border: 1px solid #ccc;
-          max-width: 400px;
+          max-width: 500px;
         }
         .features .container .image {
           background-color: #777;
@@ -81,13 +125,13 @@
           left: 0;
         }
         .features .container .quality .image::before {
-          background-color: rgb(244 64 54 / 60%);
+          background-color: rgb(61 61 61 / 60%);
         }
         .features .container .time .image::before {
-          background-color: rgb(0 150 136 / 60%);
+          background-color: rgb(61 61 61 / 60%);
         }
         .features .container .passion .image::before {
-          background-color: rgb(3 169 244 / 60%);
+          background-color: rgb(61 61 61 / 60%);
         }
         .features .container .image::after {
           content: "";
@@ -126,20 +170,14 @@
           background-color: red;
         }
         .features .container .quality .text h3::after {
-          background-color: rgb(244 64 54);
+          background-color: rgb(61 61 61);
         }
 
         .features .container .time .text h3::after {
-          background-color: rgb(0 150 136);
+          background-color: rgb(61 61 61);
         }
         .features .container .passion .text h3::after {
-          background-color: rgb(3 169 244);
-        }
-        .features .container .box .text p {
-          margin: 30px 0 20px;
-          line-height: 1.7;
-          color: #666666;
-          font-size: 20px;
+          background-color: rgb(61 61 61);
         }
         .features .container .box a {
           display: block;
@@ -154,9 +192,9 @@
           text-decoration: none;
         }
         .features .container .quality a {
-          color: rgb(244 64 54);
-          border-color: rgb(244 64 54);
-          background: linear-gradient(to right, rgb(244 64 54) 50%, white 50%);
+          color: rgb(61 61 61);
+          border-color: rgb(61 61 61);
+          background: linear-gradient(to right, rgb(61 61 61) 50%, white 50%);
           background-size: 200% 100%;
           background-position: right bottom;
         }
@@ -165,22 +203,22 @@
           color: white;
         }
         .features .container .time a {
-          border-color: rgb(0 150 136);
-          background: linear-gradient(to right, rgb(0 150 136) 50%, white 50%);
+          border-color: rgb(61 61 61);
+          background: linear-gradient(to right, rgb(61 61 61) 50%, white 50%);
           background-size: 200% 100%;
           background-position: right bottom;
-          color: rgb(0 150 136);
+          color: rgb(61 61 61);
         }
         .features .container .time:hover a {
           background-position: left bottom;
           color: white;
         }
         .features .container .passion a {
-          border-color: rgb(3 169 244);
-          background: linear-gradient(to right, rgb(3 169 244) 50%, white 50%);
+          border-color: rgb(61 61 61);
+          background: linear-gradient(to right, rgb(61 61 61) 50%, white 50%);
           background-size: 200% 100%;
           background-position: right bottom;
-          color: rgb(3 169 244);
+          color: rgb(61 61 61);
         }
         .features .container .passion:hover a {
           background-position: left bottom;
@@ -190,30 +228,34 @@
   <title>Dashboard</title>
 </head>
 <body>
-<header class="nav-container">
   <div class="navbar bg-light">
     <div class="logo">
       <a href="index.html"><img th:src="@{/images/logo-black.png}" src="../static/images/logo-black.png" alt="RedStore" width="100px" /></a>
     </div>
     <nav>
-      <ul id="MenuItems">
+      <ul class="SMN_effect-15" id="MenuItems">
         <li class="nav-item active">
           <a class="nav-link" th:href="@{/admin}" href="#">Home</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" th:href="@{/logout}" href="#"><i class="fa fa-sign-out"></i></a>
+          <a class="nav-link" th:href="@{/logout}" href="#"><i class="fa fa-sign-out" style="font-size: 20px;"></i></a>
         </li>
       </ul>
     </nav>
   </div>
-</header>
-<div class="container text-center">
-  <h1>Welcome back, Seller.</h1>
-  <p>Manage your Products here. </p>
-</div>
+
+
+
 <div class="features" id="features">
+
+    <div>
+      <h1 align="center">Welcome Back !</h1>
+
+      <p align="center">Manage your Products here. </p>
+    </div>
+
   <div class="container">
-    <div class="box quality">
+    <div class="box quality col-md-4 col-sm-3 pt-3">
       <div class="image"></div>
       <div class="text">
         <h4 class="card-title">
@@ -227,7 +269,7 @@
         </a>
       </div>
     </div>
-    <div class="box time">
+    <div class="box time col-md-4 col-sm-3 pt-3">
       <div class="image"></div>
       <div class="text">
         <h4 class="card-title">
@@ -240,7 +282,6 @@
           Manage
         </a>
       </div>
-
     </div>
   </div>
 </div>
